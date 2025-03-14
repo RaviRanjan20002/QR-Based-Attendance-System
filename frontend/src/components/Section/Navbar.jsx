@@ -17,6 +17,7 @@ const Navbar = () => {
       <Link to={"/"}>GenerateQRCode</Link>
       <Link to={"/scan"}>ScanQRCode</Link>
       <Link to={"/attendance"}>AttendanceDashboard</Link>
+      <Link to={"/attendancehistory"}>StudentAttendanceHistory</Link>
       </div>
       
     </div>
