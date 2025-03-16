@@ -129,12 +129,12 @@ const StudentAttendanceHistory = () => {
 
     useEffect(() => {
         // ✅ Fetch all attendance records
-        axios.get("http://localhost:5000/api/attendance")
+        axios.get("https://attendance-tracker-3t8w.onrender.com/api/attendance")
             .then(response => setAttendanceRecords(response.data))
             .catch(error => console.error("Error fetching attendance records:", error));
 
         // Fetch students
-        axios.get("http://localhost:5000/api/students")
+        axios.get("https://attendance-tracker-3t8w.onrender.com/api/students")
             .then(response => setStudents(response.data))
             .catch(error => console.error("Error fetching students:", error));
     }, []);

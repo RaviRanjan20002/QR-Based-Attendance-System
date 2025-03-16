@@ -54,7 +54,7 @@ const GenerateQRCode = () => {
 
     const handleRegister = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/api/students/register", { name, email });
+            const response = await axios.post("https://attendance-tracker-3t8w.onrender.com/api/students/register", { name, email });
             setQRCode(response.data.student.qrCode);
         } catch (error) {
             console.error("Error registering student:", error);

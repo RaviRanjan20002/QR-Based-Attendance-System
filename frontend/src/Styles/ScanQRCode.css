@@ -45,6 +45,7 @@ button:hover {
     justify-content: center;
 } */
 /* Base styles */
+/* Main Container */
 .container {
     text-align: center;
     background-color: #f8f9fa;
@@ -56,12 +57,14 @@ button:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Heading */
 h2 {
     color: #222;
     margin-bottom: 20px;
     font-size: 22px;
 }
 
+/* Input Field */
 input {
     width: 100%;
     padding: 12px;
@@ -89,7 +92,7 @@ button:hover {
     background-color: #218838;
 }
 
-/* QR Code Scanner */
+/* QR Code Scanner Box */
 #reader {
     margin-top: 20px;
     display: flex;
@@ -103,7 +106,65 @@ button:hover {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Design */
+/* 🔹 Message Modal (Custom Alert Box) */
+.message-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above everything */
+}
+
+.message-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.message-content p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+}
+
+.message-content button {
+    padding: 10px 15px;
+    background: #28a745;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+}
+
+.message-content button:hover {
+    background: #218838;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 🔹 Responsive Design for Mobile Screens */
 @media (max-width: 600px) {
     .container {
         width: 95%;
@@ -143,4 +204,19 @@ button:hover {
     #reader {
         width: 100%;
     }
+
+    .message-content {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .message-content p {
+        font-size: 14px;
+    }
+
+    .message-content button {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
 }
+

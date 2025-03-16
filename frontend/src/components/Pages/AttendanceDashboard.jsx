@@ -100,12 +100,13 @@ const AttendanceDashboard = () => {
         const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
         // Fetch all students
-        axios.get('http://localhost:5000/api/students')
+        // ('http://localhost:5000/api/students')
+        axios.get('https://attendance-tracker-3t8w.onrender.com/api/students')
             .then(response => setAllStudents(response.data))
             .catch(error => console.error("Error fetching students:", error));
 
         // Fetch today's attendance records
-        axios.get('http://localhost:5000/api/attendance')
+        axios.get('https://attendance-tracker-3t8w.onrender.com/api/attendance')
             .then(response => {
                 const todayRecords = response.data.filter(record =>
                     new Date(record.date).toISOString().split('T')[0] === today
