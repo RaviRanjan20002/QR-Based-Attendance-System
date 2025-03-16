@@ -5,6 +5,7 @@ import GenerateQRCode from "../src/components/Pages/GenerateQRCode";
 import ScanQRCode from '../src/components/Pages/ScanQRCode';
 import AttendanceDashboard from '../src/components/Pages/AttendanceDashboard';
 import StudentAttendanceHistory from './components/Pages/StudentAttendanceHistory';
+import TotalRegisterdStudent from './components/Pages/TotalRegisterdStudent';
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                     <Route path="scan" element={<ScanQRCode />} />
                     <Route path="attendance" element={<AttendanceDashboard />} />
                     <Route path="attendancehistory" element={<StudentAttendanceHistory/>} />
+                    <Route path="registeredstudent" element={<TotalRegisterdStudent/>} />
                 </Route>
             </Routes>
         </Router>

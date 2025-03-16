@@ -1,4 +1,4 @@
-/* ScanQRCode.css */
+/* 
 .container {
     text-align: center;
     background-color: #f8f9fa;
@@ -43,4 +43,104 @@ button:hover {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+} */
+/* Base styles */
+.container {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #222;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* QR Code Scanner */
+#reader {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        width: 100%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #reader {
+        width: 100%;
+    }
 }
