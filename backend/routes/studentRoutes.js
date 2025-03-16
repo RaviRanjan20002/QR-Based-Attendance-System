@@ -45,7 +45,7 @@ router.post('/register', async (req, res) => {
         await student.save(); // ✅ Save the student first to get the ID
 
         // ✅ Generate QR Code with Student ID (not file path)
-        const qrCodePath = `./qr_codes/${student._id}.png`;
+        const qrCodePath = `${student._id}.png`;
         const qrImage = qr.image(student._id.toString(), { type: 'png' }); // ✅ Fix: Use student ID
         qrImage.pipe(fs.createWriteStream(qrCodePath));
 
@@ -58,6 +58,7 @@ router.post('/register', async (req, res) => {
         res.status(500).json({ message: "Server Error" });
     }
 });
+
 // ✅ Fetch all registered students
 router.get("/", async (req, res) => {
     try {
