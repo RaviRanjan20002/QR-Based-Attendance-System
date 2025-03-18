@@ -257,7 +257,6 @@
 // };
 
 // export default GenerateQRCode;
-
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import { QRCodeCanvas } from "qrcode.react";
@@ -268,12 +267,55 @@ const GenerateQRCode = () => {
     const [password, setPassword] = useState("");
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [qrCode, setQRCode] = useState("");
+    const [batch, setBatch] = useState("");
+    const [contact, setContact] = useState("");
+    const [fatherName, setFatherName] = useState("");
+    const [qrCodeData, setQRCodeData] = useState("");
+    const qrRef = useRef(null);
+    const nameInputRef = useRef(null);
 
-    const handleRegister =   async () => {
-        const response = await axios.post("http://localhost:5000/api/students/register", { name, email });
-        setQRCode(response.data.student.qrCode);
+    const handlePasswordSubmit = () => {
+        if (password === "678589") {
+            setIsAuthorized(true);
+            setPassword("");
+            setTimeout(() => nameInputRef.current?.focus(), 100);
+        } else {
+            alert("❌ Incorrect Password. Try Again!");
+        }
+    };
+
+    const handleRegister = async () => {
+        if (!/^\d{10}$/.test(contact)) {
+            alert("⚠️ Contact number must be exactly 10 digits.");
+            return;
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/api/students/register", {
+                name, batch, contact, fatherName
+            });
+
+            if (response.data?.student?._id) {
+                setQRCodeData(response.data.student._id);
+            } else {
+                throw new Error("Failed to generate student ID.");
+            }
+        } catch (error) {
+            console.error("🚨 Error registering student:", error);
+            alert(error.response?.data?.message || "⚠️ Registration failed. Please try again.");
+        }
+    };
+
+    const handleDownloadQRCode = () => {
+        if (!qrRef.current) return;
+
+        const canvas = qrRef.current.querySelector("canvas");
+        if (canvas) {
+            const link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download = `${name}_QR_Code.png`;
+            link.click();
+        }
     };
 
     if (!isAuthorized) {
