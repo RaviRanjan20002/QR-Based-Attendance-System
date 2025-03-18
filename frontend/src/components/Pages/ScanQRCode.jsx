@@ -136,7 +136,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import "../../Styles/ScanQRCode.css";
-import { Html5QrcodeScanner } from "html5-qrcode";
+import { Html5QrcodeScanner,Html5QrcodeScannerState} from "html5-qrcode";
 import axios from "axios";
 
 const ScanQRCode = () => {
@@ -169,13 +169,22 @@ const ScanQRCode = () => {
                     return;
                 }
 
-                scannerRef.current.pause();
+                // state add 
+
+                if (scannerRef.current.getState() === Html5QrcodeScannerState.SCANNING) {
+                    try {
+                        scannerRef.current.pause();
+                    } catch (error) {
+                        console.error("Error pausing the scanner:", error);
+                    }
+                } else {
+                    console.warn("Cannot pause, scanner is not scanning.");
+                }
 
                 try {
-                    const response = await axios.post("http://localhost:5000/api/attendance/mark", { studentId: decodedText.trim() }
-
-                    );
-
+                    const response = await axios.post("http://localhost:5000/api/attendance/mark", { studentId: decodedText.trim() });
+                    console.log("📥 Server Response:", response.data);
+                    
                     const studentData = response.data.student || {}; 
                     setScannedStudent({
                         name: studentData.name || "N/A",

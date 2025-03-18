@@ -80,7 +80,7 @@ const TotalRegisteredStudent = () => {
     useEffect(() => {
         const fetchStudents = async () => {
             try {
-                const response = await axios.get("https://localhost:5000/api/students");
+                const response = await axios.get("http://localhost:5000/api/students");
                 setStudents(response.data);
             } catch (error) {
                 setError("Failed to fetch students. Please try again.");

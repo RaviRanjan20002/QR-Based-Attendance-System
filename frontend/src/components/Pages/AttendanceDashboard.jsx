@@ -112,31 +112,41 @@ import "../../Styles/AttendanceDashboard.css"; // Import CSS for styling
 const AttendanceDashboard = () => {
     const [attendanceRecords, setAttendanceRecords] = useState([]);
     const [allStudents, setAllStudents] = useState([]);
-    const [absentStudents, setAbsentStudents] = useState([]);
+    const [absentStudents, setAbsentStudents] = useState([])
 
     useEffect(() => {
-        const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+        const fetchData = async () => {
+            const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+            console.log(today);
 
-        // Fetch all students
-        axios.get('http://localhost:5000/api/students')
-            .then(response => setAllStudents(response.data))
-            .catch(error => console.error("Error fetching students:", error));
-
-        // Fetch today's attendance records
-        axios.get('http://localhost:5000/api/attendance')
-            .then(response => {
-                const todayRecords = response.data.filter(record =>
+            try {
+                // Fetch all students
+                const studentsResponse = await axios.get('http://localhost:5000/api/students');
+                setAllStudents(studentsResponse.data);
+                // Fetch today's attendance records
+                const attendanceResponse = await axios.get('http://localhost:5000/api/attendance');
+                const todayRecords = attendanceResponse.data.filter(record =>
                     new Date(record.date).toISOString().split('T')[0] === today
                 );
                 setAttendanceRecords(todayRecords);
-            })
-            .catch(error => console.error("Error fetching attendance records:", error));
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
     }, []);
+
+
 
     useEffect(() => {
         if (allStudents.length > 0) {
             // ✅ Fix: Use studentId directly as it's now a direct reference (_id) in Attendance schema
             const presentStudentIds = new Set(attendanceRecords.map(record => record.studentId));
+            console.log("attendanceRecords",attendanceRecords);
+            
+            console.log("present",presentStudentIds);
+            
 
             // Identify absent students (those not in today's attendance records)
             const absentList = allStudents.filter(student => !presentStudentIds.has(student._id));
@@ -162,10 +172,10 @@ const AttendanceDashboard = () => {
                         {attendanceRecords.length > 0 ? (
                             attendanceRecords.map((record) => (
                                 <tr key={record._id}>
-                                    <td>{record.student?.name || "Unknown"}</td>
-                                    <td>{record.student?.batch || "N/A"}</td>
-                                    <td>{record.student?.contact || "N/A"}</td>
-                                    <td>{record.student?.fatherName || "N/A"}</td>
+                                    <td>{record.studentId?.name || "Unknown"}</td>
+                                    <td>{record.studentId?.batch || "N/A"}</td>
+                                    <td>{record.studentId?.contact || "N/A"}</td>
+                                    <td>{record.studentId?.fatherName || "N/A"}</td>
                                 </tr>
                             ))
                         ) : (

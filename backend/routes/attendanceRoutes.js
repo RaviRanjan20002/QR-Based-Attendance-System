@@ -66,10 +66,10 @@ const Student = require("../models/Student");
 
 const router = express.Router();
 
-// ✅ Mark Attendance using `_id`
+// ✅ Mark Attendance using _id
 router.post("/mark", async (req, res) => {
     try {
-        const { studentId } = req.body; // Expecting `_id` here
+        const { studentId } = req.body; // Expecting _id here
         console.log("Received studentId:", studentId);
 
         if (!studentId || !mongoose.Types.ObjectId.isValid(studentId)) {
@@ -98,7 +98,7 @@ router.post("/mark", async (req, res) => {
         // ✅ Mark Attendance
         await Attendance.create({ studentId, date: new Date() });
 
-        res.json({ message: "✅ Attendance marked successfully!" });
+        res.json({ message: "✅ Attendance marked successfully!",student: studentExists});
     } catch (error) {
         console.error("Error in /mark:", error);
         res.status(500).json({ message: "❌ Server Error. Try again later." });
