@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-
-// const mongoose = require('mongoose');
-
-// const studentSchema = new mongoose.Schema({
-//     name: String,
-//     email: String,
-//     qrCode: String, // QR Code image path or base64
-// }, { timestamps: true }); // Adds 'createdAt' and 'updatedAt' fields
-
-// module.exports = mongoose.model('Student', studentSchema);
-=======
 // const mongoose = require("mongoose");
 
 // const studentSchema = new mongoose.Schema(
@@ -65,4 +53,3 @@ const studentSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 module.exports = mongoose.model("Student", studentSchema);
->>>>>>> 2e24c08c08ce1b72e8c36e703836c0c11e47581c

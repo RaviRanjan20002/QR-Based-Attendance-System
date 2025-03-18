@@ -89,8 +89,8 @@ const TotalRegisteredStudent = () => {
             }
         };
 
-//         fetchStudents();
-//     }, []);
+        fetchStudents();
+    }, []);
 
     return (
         <div className="totalcontainer">

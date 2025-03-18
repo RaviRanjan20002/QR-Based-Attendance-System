@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 2e24c08c08ce1b72e8c36e703836c0c11e47581c
 // const express = require("express");
 // const mongoose = require("mongoose");
 // const Attendance = require("../models/Attendance");
@@ -63,9 +59,6 @@
 // });
 
 // module.exports = router;
-<<<<<<< HEAD
-
-=======
 const express = require("express");
 const mongoose = require("mongoose");
 const Attendance = require("../models/Attendance");
@@ -127,4 +120,3 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
->>>>>>> 2e24c08c08ce1b72e8c36e703836c0c11e47581c

@@ -107,7 +107,7 @@
 // export default AttendanceDashboard;import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../../Styles/AttendanceDashboard.css"; // Import CSS for styling
-
+import React, { useEffect, useState } from 'react';
 const AttendanceDashboard = () => {
     const [attendanceRecords, setAttendanceRecords] = useState([]);
     const [allStudents, setAllStudents] = useState([]);
