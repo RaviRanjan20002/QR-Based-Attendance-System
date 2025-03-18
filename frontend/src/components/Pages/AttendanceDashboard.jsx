@@ -121,10 +121,10 @@ const AttendanceDashboard = () => {
 
             try {
                 // Fetch all students
-                const studentsResponse = await axios.get('http://localhost:5000/api/students');
+                const studentsResponse = await axios.get('https://attendance-tracker-3t8w.onrender.com/api/students');
                 setAllStudents(studentsResponse.data);
                 // Fetch today's attendance records
-                const attendanceResponse = await axios.get('http://localhost:5000/api/attendance');
+                const attendanceResponse = await axios.get('https://attendance-tracker-3t8w.onrender.com/api/attendance');
                 const todayRecords = attendanceResponse.data.filter(record =>
                     new Date(record.date).toISOString().split('T')[0] === today
                 );

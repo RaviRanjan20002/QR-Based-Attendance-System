@@ -291,7 +291,7 @@ const GenerateQRCode = () => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/api/students/register", {
+            const response = await axios.post("https://attendance-tracker-3t8w.onrender.com/api/students/register", {
                 name, batch, contact, fatherName
             });
 

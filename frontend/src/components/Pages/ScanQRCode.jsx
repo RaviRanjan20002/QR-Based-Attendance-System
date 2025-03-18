@@ -182,7 +182,7 @@ const ScanQRCode = () => {
                 }
 
                 try {
-                    const response = await axios.post("http://localhost:5000/api/attendance/mark", { studentId: decodedText.trim() });
+                    const response = await axios.post("https://attendance-tracker-3t8w.onrender.com/api/attendance/mark", { studentId: decodedText.trim() });
                     console.log("📥 Server Response:", response.data);
                     
                     const studentData = response.data.student || {}; 
