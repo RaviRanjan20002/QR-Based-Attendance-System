@@ -1,0 +1,86 @@
+/* Container */
+.totalcontainer {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    width: 90%;
+}
+
+/* Total Registered Box */
+.total {
+    max-width: 400px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: auto;
+    padding: 15px;
+    color: tomato;
+    text-align: center;
+    background-color: #050505;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table Headers & Data Cells */
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Table Header Styling */
+th {
+    background-color: #3b3602;
+    color: white;
+    font-size: 18px;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .total {
+        width: 90%;
+        font-size: 1.3rem;
+        padding: 10px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto; /* Enables horizontal scroll on small screens */
+        white-space: nowrap;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .total {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 8px;
+    }
+
+    th, td {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+

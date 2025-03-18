@@ -8,6 +8,7 @@ const GenerateQRCode = () => {
     const [qrCode, setQRCode] = useState("");
 
     const handleRegister =   async () => {
+    const handleRegister =   async () => {
         const response = await axios.post("http://localhost:5000/api/students/register", { name, email });
         setQRCode(response.data.student.qrCode);
     };
