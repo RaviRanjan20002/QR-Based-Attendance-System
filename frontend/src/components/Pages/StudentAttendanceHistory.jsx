@@ -80,7 +80,7 @@ const StudentAttendanceHistory = () => {
     };
 
     const handlePasswordSubmit = () => {
-        if (password === "678589") {
+        if (password === "env.password") {
             setIsAuthorized(true);
             setTimeout(() => passwordInputRef.current?.focus(), 100);
         } else {
