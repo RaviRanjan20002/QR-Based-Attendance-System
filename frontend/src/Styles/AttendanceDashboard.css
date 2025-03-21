@@ -79,10 +79,12 @@ th, td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
+    color: black;
 }
 
 th {
     background-color: #f1f1f1;
+    color: black;
 }
 
 /* Responsive Styles */
