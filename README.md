@@ -1,3 +1,6 @@
+
+📌 For Queries Contact me : raviranjankumar130082002@gmail.com
+
 📌 QR-Based Attendance System
 
 A QR-Based Attendance System is a digital solution that automates the process of marking attendance using Quick Response (QR) codes 📱.
