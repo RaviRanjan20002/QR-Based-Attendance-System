@@ -17,7 +17,7 @@ const GenerateQRCode = () => {
     const nameInputRef = useRef(null);
 
     const handlePasswordSubmit = () => {
-        if (password === "678589") {
+        if (password === "env.password") {
             setIsAuthorized(true);
             setPassword("");
             setTimeout(() => nameInputRef.current?.focus(), 100);
